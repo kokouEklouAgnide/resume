@@ -1,466 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kokou Eklou-Agnide — Resume</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#F7F9FB;
-    --paper:#FFFFFF;
-    --ink:#1A2333;
-    --ink-soft:#4B5768;
-    --line:#DDE4EC;
-    --accent:#0E6E63;
-    --accent-soft:#E4F1EE;
-    --mono:'IBM Plex Mono', monospace;
-    --sans:'IBM Plex Sans', -apple-system, sans-serif;
-  }
-
-  *{ box-sizing:border-box; }
-
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--sans);
-    -webkit-font-smoothing:antialiased;
-  }
-
-  .page{
-    max-width:800px;
-    margin:48px auto;
-    background:var(--paper);
-    border:1px solid var(--line);
-    box-shadow:0 1px 3px rgba(20,30,45,0.04);
-    padding:56px 60px 48px;
-  }
-
-  /* ---------- Header ---------- */
-  header{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:24px;
-    padding-bottom:22px;
-    border-bottom:2px solid var(--ink);
-  }
-
-  h1{
-    font-size:30px;
-    letter-spacing:0.01em;
-    margin:0 0 6px;
-    font-weight:700;
-  }
-
-  .role-tag{
-    font-family:var(--mono);
-    font-size:12.5px;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--accent);
-    background:var(--accent-soft);
-    display:inline-block;
-    padding:3px 9px;
-    border-radius:3px;
-  }
-
-  .contact{
-    text-align:right;
-    font-size:13px;
-    color:var(--ink-soft);
-    line-height:1.9;
-    font-family:var(--mono);
-    white-space:nowrap;
-  }
-
-  .contact a{ color:var(--ink-soft); text-decoration:none; }
-  .contact a:hover{ color:var(--accent); }
-
-  /* ---------- Signature network divider ---------- */
-  .net-divider{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    margin:34px 0 26px;
-  }
-  .net-divider .node{
-    width:5px; height:5px; border-radius:50%;
-    background:var(--line);
-    flex:none;
-  }
-  .net-divider .node.on{ background:var(--accent); }
-  .net-divider .seg{
-    height:1px;
-    background:var(--line);
-    flex:1;
-  }
-
-  /* ---------- Section ---------- */
-  section{ margin-top:30px; }
-  section:first-of-type{ margin-top:0; }
-
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:11.5px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--accent);
-    margin:0 0 14px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .eyebrow::after{
-    content:"";
-    flex:1;
-    height:1px;
-    background:var(--line);
-  }
-
-  .summary{
-    font-size:14.5px;
-    line-height:1.7;
-    color:var(--ink-soft);
-    margin:0;
-    max-width:66ch;
-  }
-
-  /* ---------- Education / Experience entries ---------- */
-  .entry{
-    padding-left:16px;
-    border-left:2px solid var(--line);
-    margin-bottom:20px;
-    position:relative;
-  }
-  .entry::before{
-    content:"";
-    position:absolute;
-    left:-5px;
-    top:4px;
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--paper);
-    border:2px solid var(--accent);
-  }
-  .entry:last-child{ margin-bottom:0; }
-
-  .entry-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    flex-wrap:wrap;
-    gap:4px 16px;
-  }
-
-  .entry-title{
-    font-weight:600;
-    font-size:15px;
-  }
-
-  .entry-org{
-    font-weight:400;
-    color:var(--ink-soft);
-  }
-
-  .entry-date{
-    font-family:var(--mono);
-    font-size:12px;
-    color:var(--ink-soft);
-    white-space:nowrap;
-  }
-
-  .entry-sub{
-    font-size:12.5px;
-    color:var(--ink-soft);
-    margin-top:2px;
-    font-family:var(--mono);
-  }
-
-  ul.bullets{
-    margin:10px 0 0;
-    padding-left:18px;
-  }
-  ul.bullets li{
-    font-size:13.8px;
-    line-height:1.65;
-    color:var(--ink);
-    margin-bottom:5px;
-  }
-  ul.bullets li::marker{
-    color:var(--accent);
-  }
-
-  .coursework{
-    font-size:13px;
-    color:var(--ink-soft);
-    margin-top:8px;
-  }
-  .coursework strong{
-    color:var(--ink);
-    font-weight:600;
-  }
-
-  /* ---------- Two-column grid for certs / skills ---------- */
-  .grid-2{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:36px;
-  }
-
-  .cert-list{
-    list-style:none;
-    margin:0; padding:0;
-  }
-  .cert-list li{
-    font-size:13.5px;
-    padding:7px 0;
-    border-bottom:1px dashed var(--line);
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    align-items:baseline;
-  }
-  .cert-list li:last-child{ border-bottom:none; }
-  .cert-status{
-    font-family:var(--mono);
-    font-size:10.5px;
-    color:var(--accent);
-    background:var(--accent-soft);
-    padding:1px 6px;
-    border-radius:3px;
-    white-space:nowrap;
-  }
-
-  .skill-row{
-    margin-bottom:12px;
-  }
-  .skill-row:last-child{ margin-bottom:0; }
-  .skill-label{
-    font-family:var(--mono);
-    font-size:11px;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    color:var(--accent);
-    display:block;
-    margin-bottom:4px;
-  }
-  .skill-value{
-    font-size:13.3px;
-    color:var(--ink);
-    line-height:1.55;
-  }
-
-  /* ---------- Print ---------- */
-  @media print{
-    body{ background:var(--paper); }
-    .page{
-      margin:0;
-      border:none;
-      box-shadow:none;
-      padding:0.4in 0.5in;
-      max-width:none;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kokou Eklou-Agnide - Resume</title>
+  <style>
+    :root {
+      --text-main: #222222;
+      --text-muted: #555555;
+      --accent: #0f4c81;
+      --border-color: #dddddd;
+      --bg-page: #f9fafb;
+      --bg-card: #ffffff;
     }
-  }
 
-  @media (max-width:640px){
-    .page{ padding:32px 22px; margin:0; border:none; }
-    header{ flex-direction:column; align-items:flex-start; gap:10px; }
-    .contact{ text-align:left; }
-    .grid-2{ grid-template-columns:1fr; gap:24px; }
-    .entry-head{ flex-direction:column; }
-  }
-</style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      padding: 2.5rem 1rem;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 3rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      letter-spacing: 0.5px;
+      color: #111111;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-info {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .contact-info a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .separator {
+      color: #aaa;
+    }
+
+    section {
+      margin-bottom: 1.75rem;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.85rem;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    .entry {
+      margin-bottom: 1.2rem;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 0.2rem;
+    }
+
+    .entry-title {
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .entry-subtitle {
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .entry-date,
+    .entry-location {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      margin-top: 0.35rem;
+    }
+
+    li {
+      margin-bottom: 0.3rem;
+      color: var(--text-main);
+    }
+
+    .skills-list p {
+      margin-bottom: 0.45rem;
+    }
+
+    .skills-list strong {
+      color: #111111;
+    }
+
+    @media print {
+      body {
+        background-color: #ffffff;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<div class="page">
-
-  <header>
-    <div>
+  <div class="container">
+    <header>
       <h1>Kokou Eklou-Agnide</h1>
-      <span class="role-tag">Networking · Cybersecurity · IT Support</span>
-    </div>
-    <div class="contact">
-      Jonesboro, GA 30238<br>
-      404-421-3423<br>
-      <a href="mailto:kokouea@yahoo.com">kokouea@yahoo.com</a><br>
-      <a href="https://www.linkedin.com/in/kokou-eklou-agnide-ba6657155/" target="_blank" rel="noopener">linkedin.com/in/kokou-eklou-agnide</a>
-    </div>
-  </header>
-
-  <section>
-    <p class="eyebrow">Summary</p>
-    <p class="summary">
-      Computer Science student with hands-on experience in technical support, hardware and software
-      troubleshooting, virtualization, and networking. Experienced supporting users, configuring
-      computer systems, maintaining technology infrastructure, and building enterprise-style homelab
-      environments. Passionate about information technology, cybersecurity, and continuous learning
-      through certifications and real-world projects. Seeking to bring a strong technical foundation
-      and problem-solving mindset to an opportunity in networking, cybersecurity, or IT support.
-    </p>
-  </section>
-
-  <div class="net-divider">
-    <div class="node on"></div><div class="seg"></div>
-    <div class="node"></div><div class="seg"></div>
-    <div class="node on"></div><div class="seg"></div>
-    <div class="node"></div>
-  </div>
-
-  <section>
-    <p class="eyebrow">Education</p>
-    <div class="entry">
-      <div class="entry-head">
-        <div>
-          <span class="entry-title">Bachelor of Science in Computer Science</span><br>
-          <span class="entry-org">Clayton State University, Morrow, GA</span>
-        </div>
-        <span class="entry-date">Jan 2023 – Present</span>
+      <div class="contact-info">
+        <span>Riverdale, GA</span>
+        <span class="separator">|</span>
+        <span>404-421-3423</span>
+        <span class="separator">|</span>
+        <a href="mailto:kokouea@yahoo.com">kokouea@yahoo.com</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/kokou-eklou-agnide-ba6657155" target="_blank" rel="noopener noreferrer">linkedin.com/in/kokou-eklou-agnide-ba6657155</a>
       </div>
-      <div class="entry-sub">GPA: 3.56 / 4.00 · Currently enrolled</div>
-      <div class="coursework">
-        <strong>Relevant coursework:</strong> Computer Programming, Data Structures & Algorythm, Database Design Implementation, Computer Networks, Operating Systems
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <section>
-    <p class="eyebrow">Experience</p>
-
-    <div class="entry">
-      <div class="entry-head">
-        <div>
-          <span class="entry-title">Inventory Control &amp; Quality Agent</span><br>
-          <span class="entry-org">Amazon — Union City, GA</span>
-        </div>
-        <span class="entry-date">Dec 2021 – Sep 2025</span>
-      </div>
-      <div class="entry-sub">40 hrs/week</div>
-      <ul class="bullets">
-        <li>Performed inventory audits and cycle counts to maintain accurate accountability of company assets.</li>
-        <li>Used computerized inventory management systems to investigate and resolve inventory discrepancies.</li>
-        <li>Maintained detailed documentation while adhering to quality assurance standards.</li>
-        <li>Collaborated with team members to improve inventory accuracy and operational efficiency.</li>
-        <li>Worked in a fast-paced environment requiring attention to detail, accuracy, and problem solving.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-head">
-        <div>
-          <span class="entry-title">IT Support Volunteer</span><br>
-          <span class="entry-org">Grace Baptist Bible Church — Riverdale, GA</span>
-        </div>
-        <span class="entry-date">Aug 2022 – Present</span>
-      </div>
-      <div class="entry-sub">2–4 hrs/week</div>
-      <ul class="bullets">
-        <li>Installed, configured, and maintained laptops, printers, projectors, microphones, and presentation equipment.</li>
-        <li>Supported livestream and audiovisual systems during church services and special events.</li>
-        <li>Performed routine maintenance of computer and network-connected devices.</li>
-        <li>Diagnosed technical issues and restored system functionality with minimal downtime.</li>
-        <li>Assisted users with technology-related questions and provided technical guidance.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <p class="eyebrow">Technical Projects</p>
-
-    <div class="entry">
-      <div class="entry-head">
-        <span class="entry-title">AI-Based Network Anomaly Detection</span>
-      </div>
-      <ul class="bullets">
-        <li>Developed an AI-assisted solution to detect unusual network traffic patterns and potential cybersecurity threats.</li>
-        <li>Applied networking and cybersecurity concepts to analyze traffic behavior and improve anomaly detection.</li>
-        <li>Strengthened knowledge of network monitoring, threat detection, and defensive security techniques.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-head">
-        <span class="entry-title">Enterprise Homelab (Proxmox)</span>
-      </div>
-      <ul class="bullets">
-        <li>Built and administered a virtualization environment using Proxmox VE.</li>
-        <li>Deployed and managed Ubuntu Server virtual machines.</li>
-        <li>Configured virtual networking, storage, and remote administration.</li>
-        <li>Practiced Linux administration, virtualization, system troubleshooting, and infrastructure management.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-head">
-        <span class="entry-title">Raspberry Pi Home Server</span>
-      </div>
-      <ul class="bullets">
-        <li>Built a Raspberry Pi-based home server running Linux.</li>
-        <li>Configured SSH, remote administration, and self-hosted services.</li>
-        <li>Gained practical experience with Linux system administration and networking.</li>
-      </ul>
-    </div>
-  </section>
-
-  <div class="net-divider">
-    <div class="node"></div><div class="seg"></div>
-    <div class="node on"></div><div class="seg"></div>
-    <div class="node"></div><div class="seg"></div>
-    <div class="node on"></div>
-  </div>
-
-  <div class="grid-2">
     <section>
-      <p class="eyebrow">Certifications</p>
-      <ul class="cert-list">
-        <li>Google IT Support Professional Certificate</li>
+      <h2>Professional Summary</h2>
+      <p>
+        Detail-oriented and safety-conscious professional with hands-on experience in inventory control, quality assurance, and process auditing gained in a high-volume Amazon fulfillment environment, maintaining 99%+ record accuracy through equipment use, cycle counts, and documentation. Reliable and adaptable team member comfortable operating equipment, troubleshooting issues on the floor, and following strict safety and sanitation procedures across shifts. Brings a strong technical foundation from IT and hardware systems coursework and certifications (ISC2 CC), along with a demonstrated ability to quickly learn new equipment and processes in fast-paced production settings.
+      </p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Clayton State University</span>
+          <span class="entry-location">Morrow, GA</span>
+        </div>
+        <div class="entry-header">
+          <span class="entry-subtitle">Bachelor of Science in Computer Science &bull; GPA: 3.56 / 4.00</span>
+          <span class="entry-date">Expected Graduation: May 2027</span>
+        </div>
+        <p><strong>Relevant Coursework:</strong> Computer Networks, Operating Systems, Data Structures &amp; Algorithms, Database Systems, Computer Programming</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-list">
+        <p><strong>Networking &amp; Protocols:</strong> TCP/IP, DNS, DHCP, Virtual Local Area Networks (VLANs), Subnetting, Routing &amp; Switching, Fiber Optics, Structured Cabling (Cat6), Wireshark</p>
+        <p><strong>Operating Systems &amp; Virtualization:</strong> Ubuntu Linux, Debian, Windows 10/11, Windows Server, Proxmox VE, KVM/QEMU, LXC Containers</p>
+        <p><strong>Security &amp; Monitoring:</strong> ISC2 CC Principles, Access Control, Firewalls, Network Monitoring, Threat &amp; Anomaly Detection, Incident Response</p>
+        <p><strong>Programming &amp; Scripting:</strong> Python, Java, C, SQL, Bash / Shell Scripting</p>
+        <p><strong>Hardware &amp; Infrastructure:</strong> Rack &amp; Stack Servers, PC Hardware Assembly, Diagnostic Tools, Audiovisual Systems, Equipment Maintenance</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Projects</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Enterprise Virtualization &amp; Homelab</span>
+          <span class="entry-date">Proxmox VE, Linux, Virtual Networking</span>
+        </div>
+        <ul>
+          <li>Designed and deployed an enterprise-style virtualization environment on bare-metal hardware running Proxmox VE.</li>
+          <li>Provisioned and maintained Ubuntu Server VMs and LXC containers for isolated test environments.</li>
+          <li>Configured Linux network bridges, static IP schemes, and secure remote management via OpenSSH and web GUIs.</li>
+          <li>Implemented storage allocation pools, snapshot management, and automated backup routines to ensure environment availability.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">AI-Assisted Network Anomaly Detection</span>
+          <span class="entry-date">Python, Scapy/Pandas, Machine Learning</span>
+        </div>
+        <ul>
+          <li>Developed a network traffic analysis tool to inspect packet payloads and identify anomalous activity indicative of port scans and DoS attempts.</li>
+          <li>Processed network logs and PCAP captures to extract flow features including packet size, transmission frequency, and flag distributions.</li>
+          <li>Evaluated detection models to reduce false positive alerts while flagging abnormal protocol behaviors.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Linux-Based Edge Home Server</span>
+          <span class="entry-date">Raspberry Pi OS, Linux CLI, Networking</span>
+        </div>
+        <ul>
+          <li>Configured a lightweight edge server on Raspberry Pi OS to manage local network services and secure remote connectivity.</li>
+          <li>Implemented automated service management using systemd daemons and bash backup scripts.</li>
+          <li>Enforced server hardening practices including SSH key-based authentication, firewall rule configurations (UFW/iptables), and disabled root login.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Grace Baptist Bible Church</span>
+          <span class="entry-location">Riverdale, GA</span>
+        </div>
+        <div class="entry-header">
+          <span class="entry-subtitle">IT Support Specialist (Volunteer)</span>
+          <span class="entry-date">August 2022 &ndash; Present</span>
+        </div>
+        <ul>
+          <li>Configure, maintain, and troubleshoot endpoints, printers, wireless presentation equipment, and AV hardware across the facility.</li>
+          <li>Support multi-channel audio/visual hardware and live streaming feeds, maintaining 99%+ uptime during live broadcasts.</li>
+          <li>Perform routine hardware upgrades, OS patching, and network device troubleshooting across local LAN connections.</li>
+          <li>Resolve end-user technical issues promptly, documenting troubleshooting procedures to streamline future incident response.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Amazon</span>
+          <span class="entry-location">Union City, GA</span>
+        </div>
+        <div class="entry-header">
+          <span class="entry-subtitle">Inventory Control &amp; Quality Assurance Agent</span>
+          <span class="entry-date">December 2021 &ndash; September 2025</span>
+        </div>
+        <ul>
+          <li>Performed comprehensive cycle counts and audits across high-volume inventory to maintain 99%+ record integrity.</li>
+          <li>Leveraged proprietary inventory management databases and scanners to trace root causes of physical and systemic discrepancies.</li>
+          <li>Documented discrepancies, process defects, and audit metrics in compliance with facility quality assurance benchmarks.</li>
+          <li>Coordinated with cross-functional floor leads to resolve inventory bottlenecks and improve overall workflow throughput.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <ul>
         <li>ISC2 Certified in Cybersecurity (CC)</li>
-        <li>Cisco Certified Network Associate (CCNA) <span class="cert-status">Exp. Dec 2026</span></li>
+        <li>Google IT Support Professional Certificate</li>
         <li>CodePath Cybersecurity 101</li>
-        <li>Fiber Optic Splicing Training (Sumitomo/AWS)</li>
+        <li>Fiber Optic Splicing Training (Sumitomo Electric Lightwave / AWS)</li>
+        <li>Cisco Certified Network Associate (CCNA) &mdash; Expected December 2026</li>
       </ul>
     </section>
-
-    <section>
-      <p class="eyebrow">Technical Skills</p>
-
-      <div class="skill-row">
-        <span class="skill-label">Operating Systems</span>
-        <span class="skill-value">Windows 10/11, Ubuntu Linux</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-label">Virtualization</span>
-        <span class="skill-value">Proxmox VE, Virtual Machines</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-label">Networking</span>
-        <span class="skill-value">TCP/IP, DNS, DHCP, Structured Cabling, Fiber Optics, Troubleshooting</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-label">Hardware</span>
-        <span class="skill-value">Assembly, Installation, System Maintenance, Rack &amp; Stack</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-label">Cybersecurity</span>
-        <span class="skill-value">Security Fundamentals, Information Assurance, Network Monitoring</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-label">Programming</span>
-        <span class="skill-value">Java, C, SQL, Python</span>
-      </div>
-      <div class="skill-row">
-        <span class="skill-label">Professional</span>
-        <span class="skill-value">Documentation, Problem Solving, Team Collaboration, MS Office</span>
-      </div>
-    </section>
   </div>
-
-</div>
-
 </body>
 </html>
