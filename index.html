@@ -77,4 +77,254 @@
       margin-bottom: 1.75rem;
     }
 
-    section:last
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.85rem;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    .entry {
+      margin-bottom: 1.2rem;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 0.2rem;
+    }
+
+    .entry-title {
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .entry-subtitle {
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .entry-date,
+    .entry-location {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      margin-top: 0.35rem;
+    }
+
+    li {
+      margin-bottom: 0.3rem;
+      color: var(--text-main);
+    }
+
+    .skills-list p {
+      margin-bottom: 0.45rem;
+    }
+
+    .skills-list strong {
+      color: #111111;
+    }
+
+    .cert-item {
+      display: inline-block;
+      margin-right: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    @media print {
+      body {
+        background-color: #ffffff;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Kokou Eklou-Agnide</h1>
+      <div class="contact-info">
+        <span>Riverdale, GA</span>
+        <span class="separator">|</span>
+        <span>404-421-3423</span>
+        <span class="separator">|</span>
+        <a href="mailto:kokouea@yahoo.com">kokouea@yahoo.com</a>
+        <span class="separator">|</span>
+        <a href="https://linkedin.com/in/kokou-eklou-agnide-ba6657155" target="_blank" rel="noopener noreferrer">linkedin.com/in/kokou-eklou-agnide-ba6657155</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Clayton State University</span>
+          <span class="entry-location">Morrow, GA</span>
+        </div>
+        <div class="entry-header">
+          <span class="entry-subtitle">Bachelor of Science in Computer Science &bull; GPA: 3.56 / 4.00</span>
+          <span class="entry-date">Expected May 2027</span>
+        </div>
+        <p><strong>Relevant Coursework:</strong> Computer Networks, Operating Systems, Database Systems, Data Structures &amp; Algorithms, Computer Programming</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-list">
+        <p><strong>Data Center &amp; Hardware:</strong> Server Rack Installation &amp; Decommissioning, Server Maintenance, Hardware Break-Fix, Structured Cabling (Cat6), Fiber Optic Splicing, PC Hardware Assembly, Diagnostic Tools, Asset Tracking &amp; Auditing</p>
+        <p><strong>Networking:</strong> Layer 1/2 Troubleshooting, TCP/IP, DNS, DHCP, VLANs, Trunking, Inter-VLAN Routing, Layer 3 Switching, Subnetting, Routing &amp; Switching, Cisco IOS, Cisco Packet Tracer, Wireshark, Scapy, Firewalls (UFW/iptables), Network Monitoring</p>
+        <p><strong>Operating Systems &amp; Virtualization:</strong> Linux/Unix Administration, Ubuntu, Debian, Raspberry Pi OS, Windows 10/11, Windows Server, Proxmox VE, KVM/QEMU, LXC Containers, SSH</p>
+        <p><strong>Programming &amp; Tools:</strong> Bash / Shell, Python, Pandas, SQL, Java, C</p>
+        <p><strong>Operations:</strong> Root Cause Analysis, Troubleshooting, Technical Documentation, Incident Response, Cybersecurity Fundamentals, Teamwork</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <ul>
+        <li>Google IT Support Professional Certificate</li>
+        <li>ISC2 Certified in Cybersecurity (CC)</li>
+        <li>Cisco CCNA (Expected December 2026)</li>
+        <li>Fiber Optic Splicing Training (Sumitomo Electric Lightwave / AWS)</li>
+        <li>CodePath Cybersecurity 101</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">IT Support Specialist (Volunteer)</span>
+          <span class="entry-date">Aug 2022 &ndash; Present</span>
+        </div>
+        <div class="entry-subtitle">Grace Baptist Bible Church &mdash; Riverdale, GA</div>
+        <ul>
+          <li>Perform hardware break-fix and troubleshooting on endpoints, printers, wireless presentation equipment, and AV hardware across the facility.</li>
+          <li>Troubleshoot network devices on the local LAN and perform hardware upgrades and OS patching.</li>
+          <li>Support multi-channel audio/visual hardware and live-stream feeds, maintaining 99%+ uptime during live broadcasts.</li>
+          <li>Resolve end-user issues promptly and document troubleshooting procedures to speed up future incident response.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Inventory Control &amp; Quality Assurance Agent</span>
+          <span class="entry-date">Dec 2021 &ndash; Sep 2025</span>
+        </div>
+        <div class="entry-subtitle">Amazon &mdash; Union City, GA</div>
+        <ul>
+          <li>Audited high-volume inventory through cycle counts, maintaining 99%+ record accuracy.</li>
+          <li>Used scanners and inventory databases to trace root causes of physical and system discrepancies and documented findings per QA standards.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Activities</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Hardware Support (Hands-On)</span>
+          <span class="entry-location">ATDC North Star AI Lab</span>
+        </div>
+        <ul>
+          <li>Broke down and decommissioned server racks, removing and handling server equipment in a hands-on, physical environment.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Server Maintenance (Hands-On)</span>
+          <span class="entry-location">Cybersecurity Lab, Clayton State University</span>
+        </div>
+        <ul>
+          <li>Worked alongside the lab assistant on server maintenance and hardware tasks in the university cybersecurity lab.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Projects</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Mini Data Center Network Lab</span>
+          <span class="entry-date">Cisco Packet Tracer, Cisco IOS, VLANs, Inter-VLAN Routing</span>
+        </div>
+        <ul>
+          <li>Built a mini data center network with a Layer 3 core switch, two access switches, two servers, and an admin PC segmented into three VLANs; configured trunks, access ports, SVIs, and inter-VLAN routing on Cisco IOS.</li>
+          <li>Verified connectivity with ping and HTTP tests and troubleshot using show vlan brief, show interfaces trunk, show ip route, and Simulation Mode.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">MetaRoCE: Endpoint-Centric RDMA Transport for AI Ethernet Fabrics</span>
+          <span class="entry-date">Clayton State University</span>
+        </div>
+        <div class="entry-subtitle">Co-Authored Survey Paper</div>
+        <ul>
+          <li>Co-authored a survey and critical analysis of Meta's MetaRoCE protocol, covering RoCEv2 limitations (PFC, ECMP, congestion control) and comparisons with MRC and Ultra Ethernet.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Enterprise Virtualization &amp; Homelab</span>
+          <span class="entry-date">Proxmox VE, Linux, Virtual Networking</span>
+        </div>
+        <ul>
+          <li>Built and deployed an enterprise-style virtualization environment on bare-metal server hardware, including physical setup, Cat6 cabling, and network connections.</li>
+          <li>Provisioned Ubuntu Server VMs and LXC containers; implemented storage pools, snapshots, and automated backups.</li>
+          <li>Configured Linux network bridges, static IP schemes, and secure remote management via OpenSSH and web GUIs.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Linux-Based Edge Home Server</span>
+          <span class="entry-date">Raspberry Pi OS, Linux CLI, Networking</span>
+        </div>
+        <ul>
+          <li>Configured a lightweight edge server for local network services; automated service management with Bash backup scripts and hardened it with SSH key authentication and UFW/iptables rules.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">AI-Assisted Network Anomaly Detection</span>
+          <span class="entry-date">Python, Scapy, Pandas</span>
+        </div>
+        <ul>
+          <li>Built a traffic analysis tool that processes PCAP captures and network logs to flag anomalous activity such as port scans and DoS attempts.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
